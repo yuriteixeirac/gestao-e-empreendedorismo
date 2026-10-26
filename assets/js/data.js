@@ -1,5 +1,5 @@
 /* =========================================================
-   Nexo · dados de demonstração
+   Infraguard · dados de demonstração
    Todos os nomes, IPs e registros são fictícios.
    ========================================================= */
 
@@ -10,18 +10,18 @@ window.DB = (() => {
     id: 'u1',
     name: 'Diogo Almeida',
     role: 'Técnico de TI',
-    email: 'diogo@nexo.local',
+    email: 'diogo@infraguard.local',
     initials: 'DA',
     twoFactor: true,
   };
 
   const users = [
-    { id: 'u1', name: 'Diogo Almeida', role: 'Técnico de TI', email: 'diogo@nexo.local', initials: 'DA', twoFactor: true, lastAccess: '2026-10-24T08:42:00', status: 'Ativo' },
-    { id: 'u2', name: 'Mariana Costa', role: 'Coordenadora de TI', email: 'mariana@nexo.local', initials: 'MC', twoFactor: true, lastAccess: '2026-10-23T15:12:00', status: 'Ativo' },
-    { id: 'u3', name: 'Rafael Lima', role: 'Auditor', email: 'rafael@nexo.local', initials: 'RL', twoFactor: true, lastAccess: '2026-10-20T11:20:00', status: 'Ativo' },
-    { id: 'u4', name: 'Camila Souza', role: 'Técnica de TI', email: 'camila@nexo.local', initials: 'CS', twoFactor: false, lastAccess: '2026-10-22T09:15:00', status: 'Ativo' },
-    { id: 'u5', name: 'Administrador', role: 'Administrador do sistema', email: 'admin@nexo.local', initials: 'AD', twoFactor: true, lastAccess: '2026-10-18T17:05:00', status: 'Ativo' },
-    { id: 'u6', name: 'Lucas Prado', role: 'Estagiário', email: 'lucas@nexo.local', initials: 'LP', twoFactor: false, lastAccess: '2026-09-02T13:40:00', status: 'Inativo' },
+    { id: 'u1', name: 'Diogo Almeida', role: 'Técnico de TI', email: 'diogo@infraguard.local', initials: 'DA', twoFactor: true, lastAccess: '2026-10-24T08:42:00', status: 'Ativo' },
+    { id: 'u2', name: 'Mariana Costa', role: 'Coordenadora de TI', email: 'mariana@infraguard.local', initials: 'MC', twoFactor: true, lastAccess: '2026-10-23T15:12:00', status: 'Ativo' },
+    { id: 'u3', name: 'Rafael Lima', role: 'Auditor', email: 'rafael@infraguard.local', initials: 'RL', twoFactor: true, lastAccess: '2026-10-20T11:20:00', status: 'Ativo' },
+    { id: 'u4', name: 'Camila Souza', role: 'Técnica de TI', email: 'camila@infraguard.local', initials: 'CS', twoFactor: false, lastAccess: '2026-10-22T09:15:00', status: 'Ativo' },
+    { id: 'u5', name: 'Administrador', role: 'Administrador do sistema', email: 'admin@infraguard.local', initials: 'AD', twoFactor: true, lastAccess: '2026-10-18T17:05:00', status: 'Ativo' },
+    { id: 'u6', name: 'Lucas Prado', role: 'Estagiário', email: 'lucas@infraguard.local', initials: 'LP', twoFactor: false, lastAccess: '2026-09-02T13:40:00', status: 'Inativo' },
   ];
 
   const servers = [
@@ -279,7 +279,7 @@ window.DB = (() => {
   ];
 
   const audit = [
-    { id: 'a01', at: '2026-10-24T08:42:00', actor: 'Diogo Almeida', action: 'Sessão iniciada', entityType: 'Sistema', entityId: 'sistema', entityLabel: 'Nexo', detail: 'Autenticação com segundo fator.', ip: '10.10.1.42', tone: 'accent' },
+    { id: 'a01', at: '2026-10-24T08:42:00', actor: 'Diogo Almeida', action: 'Sessão iniciada', entityType: 'Sistema', entityId: 'sistema', entityLabel: 'Infraguard', detail: 'Autenticação com segundo fator.', ip: '10.10.1.42', tone: 'accent' },
     { id: 'a02', at: '2026-10-23T16:05:00', actor: 'Diogo Almeida', action: 'Solicitou troca de senha', entityType: 'Credencial', entityId: 'cred-05', entityLabel: 'postgres · srv-db01', detail: 'Solicitação REQ-018 aguardando aprovação.', ip: '10.10.1.42', tone: 'warn', serverId: 'srv-db01' },
     { id: 'a03', at: '2026-10-23T15:12:00', actor: 'Mariana Costa', action: 'Aprovou solicitação', entityType: 'Solicitação', entityId: 'REQ-017', entityLabel: 'REQ-017 · admin · sw-core01', detail: 'Janela agendada para 26/10 às 18:00.', ip: '10.10.1.10', tone: 'accent' },
     { id: 'a04', at: '2026-10-23T10:30:00', actor: 'Diogo Almeida', action: 'Classificou serviço', entityType: 'Serviço', entityId: 'svc-lab-telnet', entityLabel: 'Telnet · srv-lab01', detail: "Classificação alterada de 'Revisar' para 'Desativar'.", ip: '10.10.1.42', tone: 'warn', serverId: 'srv-lab01' },
@@ -290,7 +290,7 @@ window.DB = (() => {
     { id: 'a09', at: '2026-10-18T16:30:00', actor: 'Mariana Costa', action: 'Aprovou desativação', entityType: 'Serviço', entityId: 'svc-web02-ftp', entityLabel: 'FTP · srv-web02', detail: 'Serviço desativado após validação técnica.', ip: '10.10.1.10', tone: 'accent', serverId: 'srv-web02' },
     { id: 'a10', at: '2026-10-17T09:10:00', actor: 'Diogo Almeida', action: 'Cadastrou máquina virtual', entityType: 'Servidor', entityId: 'srv-lab01', entityLabel: 'srv-lab01', detail: 'VM 203 criada no hypervisor hv-prox02.', ip: '10.10.1.42', tone: 'accent', serverId: 'srv-lab01' },
     { id: 'a11', at: '2026-10-15T18:50:00', actor: 'Diogo Almeida', action: 'Concluiu troca de senha', entityType: 'Solicitação', entityId: 'REQ-015', entityLabel: 'REQ-015 · root · srv-bkp01', detail: 'Próxima troca recalculada para 05/11/2026.', ip: '10.10.1.42', tone: 'accent', serverId: 'srv-bkp01' },
-    { id: 'a12', at: '2026-10-12T14:10:00', actor: 'Diogo Almeida', action: 'Atualizou credencial', entityType: 'Credencial', entityId: 'cred-12', entityLabel: 'root · srv-lab01', detail: 'Troca registrada fora do Nexo; evidência anexada.', ip: '10.10.1.42', tone: 'neutral', serverId: 'srv-lab01' },
+    { id: 'a12', at: '2026-10-12T14:10:00', actor: 'Diogo Almeida', action: 'Atualizou credencial', entityType: 'Credencial', entityId: 'cred-12', entityLabel: 'root · srv-lab01', detail: 'Troca registrada fora do Infraguard; evidência anexada.', ip: '10.10.1.42', tone: 'neutral', serverId: 'srv-lab01' },
     { id: 'a13', at: '2026-10-02T10:15:00', actor: 'Diogo Almeida', action: 'Atualizou ficha do servidor', entityType: 'Servidor', entityId: 'hv-prox02', entityLabel: 'hv-prox02', detail: 'Versão do Proxmox confirmada e capacidade revisada.', ip: '10.10.1.42', tone: 'neutral', serverId: 'hv-prox02' },
     { id: 'a14', at: '2026-09-28T09:00:00', actor: 'Diogo Almeida', action: 'Revisou serviços', entityType: 'Servidor', entityId: 'srv-db01', entityLabel: 'srv-db01', detail: '2 serviços revisados e mantidos em uso.', ip: '10.10.1.42', tone: 'neutral', serverId: 'srv-db01' },
     { id: 'a15', at: '2026-09-20T15:30:00', actor: 'Diogo Almeida', action: 'Atualizou ficha do servidor', entityType: 'Servidor', entityId: 'srv-bkp01', entityLabel: 'srv-bkp01', detail: 'Rotina de retenção documentada.', ip: '10.10.1.42', tone: 'neutral', serverId: 'srv-bkp01' },

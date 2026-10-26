@@ -1,4 +1,4 @@
-# Nexo · Central de Infraestrutura
+# Infraguard · Central de Infraestrutura
 
 Mock navegável de um site para centralizar servidores, serviços, máquinas virtuais, hypervisores, switches e a agenda de troca de senhas da infraestrutura de TI.
 
@@ -11,7 +11,7 @@ Abra o arquivo `index.html` diretamente no navegador. O site funciona sem servid
 Se preferir servir por HTTP:
 
 ```bash
-cd /home/yuri/Projects/gestao
+cd /home/yuri/Projects/gestao-e-empreendedorismo
 python3 -m http.server 8765
 ```
 

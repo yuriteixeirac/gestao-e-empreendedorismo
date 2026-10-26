@@ -1,5 +1,5 @@
 /* =========================================================
-   Nexo · aplicação (navegação, ações e estado da demonstração)
+   Infraguard · aplicação (navegação, ações e estado da demonstração)
    ========================================================= */
 
 (() => {
@@ -39,10 +39,10 @@
   const shell = () => `
     <div class="app">
       <aside class="sidebar" id="sidebar">
-        <a class="brand" href="#/painel" aria-label="Nexo — ir para o painel">
+        <a class="brand" href="#/painel" aria-label="Infraguard — ir para o painel">
           <span class="brand-mark">${window.brandMark()}</span>
           <span>
-            <span class="brand-name">Nexo</span>
+            <span class="brand-name">Infraguard</span>
             <span class="brand-sub">central de infraestrutura</span>
           </span>
         </a>
@@ -157,7 +157,7 @@
 
     view.innerHTML = (renderers[page] || renderers.painel)(route.param);
 
-    document.title = `${isLogin ? 'Entrar' : title} · Nexo`;
+    document.title = `${isLogin ? 'Entrar' : title} · Infraguard`;
 
     if (!isLogin) {
       updateChrome(meta, route, title);
@@ -400,7 +400,7 @@
 
     S.openDialog({
       title: 'Solicitar troca de senha',
-      description: 'A solicitação entra na fila de aprovação da coordenação. O Nexo não solicita nem armazena a senha.',
+      description: 'A solicitação entra na fila de aprovação da coordenação. O Infraguard não solicita nem armazena a senha.',
       submitLabel: 'Enviar solicitação',
       body: `
         <div class="field">
@@ -420,7 +420,7 @@
         </div>
         <div class="cred-note" style="margin:0">
           ${icon('lock', 15)}
-          <span>A execução acontece fora do Nexo, no equipamento ou no cofre institucional. Aqui ficam registrados solicitante, aprovador, datas e evidência.</span>
+          <span>A execução acontece fora do Infraguard, no equipamento ou no cofre institucional. Aqui ficam registrados solicitante, aprovador, datas e evidência.</span>
         </div>
       `,
       onSubmit: (data) => {
@@ -682,7 +682,7 @@
         </div>
         <div class="field">
           <label for="user-email">E-mail institucional</label>
-          <input class="input" id="user-email" name="email" type="email" placeholder="nome@nexo.local" required>
+          <input class="input" id="user-email" name="email" type="email" placeholder="nome@infraguard.local" required>
         </div>
         <div class="field">
           <label for="user-role">Perfil de acesso</label>
@@ -845,17 +845,17 @@
 
   const exportData = (kind) => {
     const today = isoDay(DB.today);
-    let filename = `nexo-${today}.csv`;
+    let filename = `infraguard-${today}.csv`;
     let rows = [];
 
     if (kind === 'servers') {
-      filename = `nexo-servidores-${today}.csv`;
+      filename = `infraguard-servidores-${today}.csv`;
       rows = [
         ['Hostname', 'IP', 'Tipo', 'Sistema operacional', 'Versão', 'Ambiente', 'Criticidade', 'Situação', 'Finalidade', 'Responsável', 'Localização'],
         ...DB.servers.map((s) => [s.hostname, s.ip, s.kind, s.os, s.osVersion, s.environment, s.criticality, s.status, s.purpose, s.responsible, s.location]),
       ];
     } else if (kind === 'vms') {
-      filename = `nexo-maquinas-virtuais-${today}.csv`;
+      filename = `infraguard-maquinas-virtuais-${today}.csv`;
       rows = [
         ['VM', 'Hypervisor', 'IP', 'Sistema operacional', 'Versão', 'vCPU', 'RAM (GB)', 'Disco (GB)', 'Finalidade', 'Situação'],
         ...DB.servers.filter((s) => s.kind === 'Virtual').map((vm) => [
@@ -863,7 +863,7 @@
         ]),
       ];
     } else if (kind === 'hypervisors') {
-      filename = `nexo-hypervisores-${today}.csv`;
+      filename = `infraguard-hypervisores-${today}.csv`;
       rows = [
         ['Hypervisor', 'IP', 'Plataforma', 'Versão', 'Cluster', 'VMs', 'CPU (%)', 'RAM usada (GB)', 'RAM total (GB)', 'Disco usado (GB)', 'Disco total (GB)'],
         ...DB.servers.filter((s) => s.isHypervisor).map((hv) => [
@@ -872,7 +872,7 @@
         ]),
       ];
     } else if (kind === 'switches') {
-      filename = `nexo-switches-${today}.csv`;
+      filename = `infraguard-switches-${today}.csv`;
       rows = [
         ['Switch', 'Modelo', 'IP', 'Localização', 'Portas', 'Portas em uso', 'VLANs'],
         ...DB.switches.map((sw) => [sw.name, sw.model, sw.ip, sw.location, sw.portCount, sw.usedPorts.length, sw.vlans.join(', ')]),
@@ -881,13 +881,13 @@
       const list = kind === 'idle'
         ? DB.services.filter((s) => s.classification === 'Revisar' || s.classification === 'Desativar')
         : DB.services;
-      filename = kind === 'idle' ? `nexo-servicos-ociosos-${today}.csv` : `nexo-servicos-${today}.csv`;
+      filename = kind === 'idle' ? `infraguard-servicos-ociosos-${today}.csv` : `infraguard-servicos-${today}.csv`;
       rows = [
         ['Serviço', 'Servidor', 'Porta', 'Protocolo', 'Exposição', 'Classificação', 'Última revisão', 'Observação'],
         ...list.map((svc) => [svc.name, S.getServer(svc.serverId)?.hostname || '', svc.port, svc.protocol, svc.exposure, svc.classification, S.fmtDate(svc.lastReviewed), svc.note]),
       ];
     } else if (kind === 'credentials') {
-      filename = `nexo-credenciais-${today}.csv`;
+      filename = `infraguard-credenciais-${today}.csv`;
       rows = [
         ['Usuário', 'Servidor', 'Responsável', 'Rotação (dias)', 'Última troca', 'Próxima troca', 'Situação'],
         ...DB.credentials.map((cred) => {
@@ -896,7 +896,7 @@
         }),
       ];
     } else if (kind === 'audit') {
-      filename = `nexo-auditoria-${today}.csv`;
+      filename = `infraguard-auditoria-${today}.csv`;
       rows = [
         ['Data e hora', 'Usuário', 'Operação', 'Registro', 'Detalhe', 'IP'],
         ...DB.audit.map((entry) => [S.fmtDateTime(entry.at), entry.actor, entry.action, entry.entityLabel, entry.detail, entry.ip]),

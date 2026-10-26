@@ -1,5 +1,5 @@
 /* =========================================================
-   Nexo · utilitários e componentes de interface
+   Infraguard · utilitários e componentes de interface
    ========================================================= */
 
 window.UI = (() => {

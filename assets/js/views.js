@@ -1,5 +1,5 @@
 /* =========================================================
-   Nexo · telas
+   Infraguard · telas
    ========================================================= */
 
 window.Views = (() => {
@@ -359,7 +359,7 @@ window.Views = (() => {
                 ${S.chip(`${credCounts.atencao} a vencer`, credCounts.atencao ? 'warn' : 'neutral', true)}
                 ${S.chip(`${credCounts.ok} em dia`, 'ok', true)}
               </div>
-              <p class="small muted">O Nexo guarda apenas o responsável, a periodicidade e as datas de troca. Nenhuma senha é armazenada.</p>
+              <p class="small muted">O Infraguard guarda apenas o responsável, a periodicidade e as datas de troca. Nenhuma senha é armazenada.</p>
               ${creds.length ? `<button class="btn btn-sm" data-action="open-request" data-credential="${creds[0].id}" style="justify-self:start">${icon('key', 13)} Solicitar troca</button>` : ''}
             </div>
           </section>
@@ -919,7 +919,7 @@ window.Views = (() => {
       })}
       <div class="cred-note">
         ${icon('lock', 16)}
-        <span><strong>Nenhuma senha é armazenada.</strong> O Nexo registra apenas o usuário, o responsável, a periodicidade e as datas de troca. Os segredos permanecem no cofre institucional.</span>
+        <span><strong>Nenhuma senha é armazenada.</strong> O Infraguard registra apenas o usuário, o responsável, a periodicidade e as datas de troca. Os segredos permanecem no cofre institucional.</span>
       </div>
       ${S.statStrip([
         { label: 'Vencidas', icon: 'alert', value: cc.vencida, note: '<span class="alert">exigem ação imediata</span>' },
@@ -945,7 +945,7 @@ window.Views = (() => {
             <tbody>${rows}</tbody>
           </table>
         </div>
-        <div class="card-foot">Trocas são registradas com solicitante, aprovador, data e observação. O segredo nunca passa pelo Nexo.</div>
+        <div class="card-foot">Trocas são registradas com solicitante, aprovador, data e observação. O segredo nunca passa pelo Infraguard.</div>
       </div>
     `;
   };
@@ -1188,7 +1188,7 @@ window.Views = (() => {
     return `
       ${S.pageHead({
         title: 'Auditoria',
-        subtitle: 'Registro imutável das operações realizadas no Nexo.',
+        subtitle: 'Registro imutável das operações realizadas no Infraguard.',
         actions: `<button class="btn" data-action="export" data-export="audit">${icon('download', 15)} Exportar CSV</button>`,
       })}
       <div class="table-wrap" data-filter-scope="audit">
@@ -1237,7 +1237,7 @@ window.Views = (() => {
     return `
       ${S.pageHead({
         title: 'Usuários e permissões',
-        subtitle: 'Quem pode consultar, editar e aprovar operações no Nexo.',
+        subtitle: 'Quem pode consultar, editar e aprovar operações no Infraguard.',
         actions: `<button class="btn btn-primary" data-action="new-user">${icon('plus', 15)} Novo usuário</button>`,
       })}
       ${S.statStrip([
@@ -1301,7 +1301,7 @@ window.Views = (() => {
     return `
       <div class="login">
         <section class="login-visual">
-          <div class="login-brand">${logo}<span>Nexo</span></div>
+          <div class="login-brand">${logo}<span>Infraguard</span></div>
           <div class="login-copy">
             <h1>Cada servidor, serviço e acesso em um só lugar.</h1>
             <p>O inventário que a equipe consulta antes de alterar qualquer coisa. Catálogo, revisão de serviços e agenda de senhas sem planilhas espalhadas.</p>
@@ -1320,12 +1320,12 @@ window.Views = (() => {
         <section class="login-panel">
           <div class="login-form-wrap">
             <span class="login-eyebrow">${icon('lock', 13)} Acesso restrito</span>
-            <h2>Entrar no Nexo</h2>
+            <h2>Entrar no Infraguard</h2>
             <p class="sub">Use sua conta institucional para continuar.</p>
             <form class="login-form">
               <div class="field">
                 <label for="login-email">E-mail institucional</label>
-                <input class="input" id="login-email" type="email" value="diogo@nexo.local" autocomplete="username">
+                <input class="input" id="login-email" type="email" value="diogo@infraguard.local" autocomplete="username">
               </div>
               <div class="field">
                 <label for="login-pass">Senha</label>
@@ -1337,7 +1337,7 @@ window.Views = (() => {
               ${icon('info', 13)}
               <span>Demonstração: os dados são fictícios e nenhuma credencial é enviada. Clique em <strong>Entrar</strong> para abrir o painel.</span>
             </div>
-            <div class="login-meta"><span>Nexo v1.0</span><span>autenticação com 2FA</span></div>
+            <div class="login-meta"><span>Infraguard v1.0</span><span>autenticação com 2FA</span></div>
           </div>
         </section>
       </div>
